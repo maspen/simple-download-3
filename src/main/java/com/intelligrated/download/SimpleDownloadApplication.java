@@ -1,16 +1,16 @@
 package com.intelligrated.download;
 
-import java.time.LocalDateTime;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.intelligrated.download.repo.DataObjectRepository;
-
+import com.intelligrated.download.data.DataObject;
+import com.intelligrated.download.data.DataObjectFactory;
+import com.intelligrated.download.mapper.Mapper;
+import com.intelligrated.download.mapper.MapperFactory;
 
 @SpringBootApplication
+//@EntityScan
 public class SimpleDownloadApplication implements CommandLineRunner {
 	// 3 different lines
 	static String[] lines = {
@@ -19,24 +19,22 @@ public class SimpleDownloadApplication implements CommandLineRunner {
 			"30011t125.00"			  // see Carton
 	};
 	
-	
-	@Autowired
-	private DataObjectRepository dataObjectRepository;
-	
-	static String timeAsString = LocalDateTime.now().toString();
-	//					 [order number][sku][ship date]
-	static String line = "123456XYZ6789ABC" + timeAsString + "DESCRIPTION";
-	// sample date: 2015-11-19T15:30:33.384
-	
     public static void main(String[] args) {
         SpringApplication.run(SimpleDownloadApplication.class, args);
     }
     
     @Override
     public void run(String... srings) throws Exception {
-    	// iterate over all lines
-    	for (String line : srings) {
-    		// send each to a mapper			
+    	System.out.println("*** starting:");
+
+    	for (String line : lines) {
+			System.out.println("line: " + line);
+			DataObject dataObject = DataObjectFactory.getDataObject(line);
+			Mapper mapper = MapperFactory.getMapper(dataObject);
+			
+			System.out.println("dataObject class: " + dataObject.getClass().getName());
 		}
+    	
+    	System.out.println("stopping ***");
     }
 }
