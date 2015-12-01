@@ -11,7 +11,9 @@ import java.time.LocalDateTime;
 public enum DataTypeEnum {
 	INTEGER(Integer.class),
 	DATE(LocalDateTime.class),
-	STRING(String.class);
+	STRING(String.class),
+	BOOLEAN(Boolean.class),
+	FLOAT(Float.class);
 	
 	private Class clazz;
 	

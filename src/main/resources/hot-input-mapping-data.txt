@@ -1,7 +1,0 @@
-value																	
-field name	rectype	ITEMDWN	ADD	WAAVE_ID	c oder nbr	l item nbr	PICK	location	SKU	SKU DESC	prefix	order nbr	carton nbr	ORDERED	future1	Future2	wave id
-field title	1	comment_1	comment_2	dl_batch	c_order_nbr	misc_field_1	comment_3	comment_4	comment_5	comment_6	comment_8	order_nbr	carton_id	misc_int1	misc_field_2	misc_field_3	comment_9
-field_tab_name	LITERAL	eporder	eporder	eporder	eporder	eporder	eporder	eporder	eporder	eporder	eporder	eporder	eporder	eporder	eporder	eporder	eporder
-index_start	0	1	8	12	22	32	38	41	52	59	64	72	82	88	96	105	113
-index_length	1	7	3	9	9	5	3	10	7	5	7	7	7	7	8	7	8
-data_type		char(50)	char(50)	char(10)	char(20)	char(20)	char(50)	char(50)	char(50)	char(50)	char(50)	char(20)	char(20)	integer	char(20)	char(20)	char(50)

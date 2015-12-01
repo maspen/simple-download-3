@@ -1,4 +1,0 @@
-value	field name	field title	field_tab_name	index_start	index_length	data_type
-	sku	SKU	header	1	5	integer
-	ship_date	Ship Date	header	6	10	date
-	descr	Description	header	16	6	string

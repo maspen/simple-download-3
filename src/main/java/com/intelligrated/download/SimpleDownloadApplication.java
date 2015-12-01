@@ -23,7 +23,7 @@ public class SimpleDownloadApplication implements CommandLineRunner {
 			"30011t125.00"			  // see Carton
 	};
 	
-	static Map<String, MapperStrategy> mapperStrategyMape = new ConcurrentHashMap<String, MapperStrategy>(){{
+	static Map<String, MapperStrategy> mapperStrategyMap = new ConcurrentHashMap<String, MapperStrategy>(){{
 		put("1", new HeaderMapperStrategy());
 		put("2", new OrderMapperStrategy());
 		put("3", new CartonMapperStrategy());
@@ -49,7 +49,7 @@ public class SimpleDownloadApplication implements CommandLineRunner {
 			
 			DataObject dataObject = mapperStrategy.map(line);
 			
-//			System.out.println(dataObject.toString());
+			System.out.println(dataObject.toString());
 			
 			// TODO: persist dataObject
 			System.out.println("");
@@ -63,6 +63,6 @@ public class SimpleDownloadApplication implements CommandLineRunner {
     	// TODO: if line == ""
     	String firstChar = line.substring(0, 1);
     	// TODO: if '1st char' not in map
-    	return mapperStrategyMape.get(firstChar);
+    	return mapperStrategyMap.get(firstChar);
     }
 }

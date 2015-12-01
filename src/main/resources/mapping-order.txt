@@ -1,0 +1,4 @@
+value	field name	field title	field_tab_name	index_start	index_length	data_type
+	sku	SKU	order	1	9	string
+	description	DESC	order	10	8	string
+	quantity	QTY	order	18	3	integer

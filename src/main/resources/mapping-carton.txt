@@ -1,0 +1,4 @@
+value	field name	field title	field_tab_name	index_start	index_length	data_type
+	carton_id	ID	carton	1	4	string
+	is_full	IS_FULL	carton	5	1	boolean
+	unit_price	UNIT_PRICE	carton	6	6	float
