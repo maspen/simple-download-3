@@ -1,13 +1,17 @@
 package com.intelligrated.download;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.intelligrated.download.data.DataObject;
-import com.intelligrated.download.data.DataObjectFactory;
-import com.intelligrated.download.mapper.Mapper;
-import com.intelligrated.download.mapper.MapperFactory;
+import com.intelligrated.download.mapper.strategy.CartonMapperStrategy;
+import com.intelligrated.download.mapper.strategy.HeaderMapperStrategy;
+import com.intelligrated.download.mapper.strategy.MapperStrategy;
+import com.intelligrated.download.mapper.strategy.OrderMapperStrategy;
 
 @SpringBootApplication
 //@EntityScan
@@ -19,22 +23,46 @@ public class SimpleDownloadApplication implements CommandLineRunner {
 			"30011t125.00"			  // see Carton
 	};
 	
+	static Map<String, MapperStrategy> mapperStrategyMape = new ConcurrentHashMap<String, MapperStrategy>(){{
+		put("1", new HeaderMapperStrategy());
+		put("2", new OrderMapperStrategy());
+		put("3", new CartonMapperStrategy());
+	}};
+	
     public static void main(String[] args) {
         SpringApplication.run(SimpleDownloadApplication.class, args);
     }
     
+    /**
+     * 1. read in file line by line
+     * 2. using 1st 'char' determine what type of DataObject will be created
+     * 3. send correct DataObject to MapperFactory to get the correct mapper
+     * 4. call mapper.map which returns a persisted DataObject of correct type
+     */
     @Override
     public void run(String... srings) throws Exception {
     	System.out.println("*** starting:");
 
     	for (String line : lines) {
 			System.out.println("line: " + line);
-			DataObject dataObject = DataObjectFactory.getDataObject(line);
-			Mapper mapper = MapperFactory.getMapper(dataObject);
+			MapperStrategy mapperStrategy = getMapperStrategy(line);
 			
-			System.out.println("dataObject class: " + dataObject.getClass().getName());
+			DataObject dataObject = mapperStrategy.map(line);
+			
+//			System.out.println(dataObject.toString());
+			
+			// TODO: persist dataObject
+			System.out.println("");
 		}
     	
     	System.out.println("stopping ***");
+    }
+    
+    private MapperStrategy getMapperStrategy(String line) {
+    	// TODO: if line == null -->NPE
+    	// TODO: if line == ""
+    	String firstChar = line.substring(0, 1);
+    	// TODO: if '1st char' not in map
+    	return mapperStrategyMape.get(firstChar);
     }
 }
