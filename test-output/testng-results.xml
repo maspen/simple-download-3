@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="1354" started-at="2015-12-02T23:37:32Z" finished-at="2015-12-02T23:37:34Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="1354" started-at="2015-12-02T23:37:32Z" finished-at="2015-12-02T23:37:34Z">
+      <class name="com.intelligrated.download.SimpleDownloadApplicationTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.intelligrated.download.SimpleDownloadApplicationTest@1fc2b765]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="11" started-at="2015-12-02T15:37:32Z" finished-at="2015-12-02T15:37:32Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestClass -->
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.intelligrated.download.SimpleDownloadApplicationTest@1fc2b765]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="908" started-at="2015-12-02T15:37:32Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2015-12-02T15:37:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextPrepareTestInstance -->
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.intelligrated.download.SimpleDownloadApplicationTest@1fc2b765]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="1" started-at="2015-12-02T15:37:33Z" finished-at="2015-12-02T15:37:33Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.intelligrated.download.SimpleDownloadApplicationTest.getAllEntries()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextBeforeTestMethod -->
+        <test-method status="PASS" signature="getAllEntries()[pri:0, instance:com.intelligrated.download.SimpleDownloadApplicationTest@1fc2b765]" name="getAllEntries" duration-ms="419" started-at="2015-12-02T15:37:33Z" finished-at="2015-12-02T15:37:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getAllEntries -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.intelligrated.download.SimpleDownloadApplicationTest@1fc2b765]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="0" started-at="2015-12-02T15:37:34Z" finished-at="2015-12-02T15:37:34Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.intelligrated.download.SimpleDownloadApplicationTest.getAllEntries()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestMethod -->
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.intelligrated.download.SimpleDownloadApplicationTest@1fc2b765]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2015-12-02T15:37:34Z" finished-at="2015-12-02T15:37:34Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- springTestContextAfterTestClass -->
+      </class> <!-- com.intelligrated.download.SimpleDownloadApplicationTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

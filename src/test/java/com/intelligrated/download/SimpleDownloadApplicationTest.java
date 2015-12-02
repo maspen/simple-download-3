@@ -5,26 +5,31 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.testng.Assert;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+@Test
 @SpringApplicationConfiguration(classes = Config.class)
-public class SimpleDownloadApplicationTest {
+public class SimpleDownloadApplicationTest extends AbstractTestNGSpringContextTests {
 	@Autowired
 	DataSource dataSource;
 	
 	JdbcTemplate jdbcTemplate;
 	
+//	@Before
+//	public void setup() {
+//		jdbcTemplate = new JdbcTemplate(dataSource);
+//		Assert.assertNotNull(jdbcTemplate);
+//	}
+	
 	@Test
-	public void test() {
+	public void getAllEntries() {
 		jdbcTemplate = new JdbcTemplate(dataSource);
-		
 		Assert.assertNotNull(jdbcTemplate);
 		
 		String selectQuery = "SELECT * FROM def_down_up";
@@ -32,6 +37,10 @@ public class SimpleDownloadApplicationTest {
 		List<Map<String, Object>> resultSet = jdbcTemplate.queryForList(selectQuery);
 		
 		Assert.assertNotNull(resultSet);
+		Assert.assertEquals(9, resultSet.size());
 		
+		for (Map<String, Object> map : resultSet) {
+			System.out.println(map);
+		}
 	}
 }
