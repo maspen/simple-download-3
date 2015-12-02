@@ -8,7 +8,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>simple-download-jpa-2</name>
+	<name>simple-download-3</name>
 	<description></description>
 
 	<parent>
@@ -49,29 +49,30 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-aspects</artifactId>
 		</dependency>
-
-		<!-- JPA Provider (Hibernate) -->
-<!-- 		<dependency> -->
-<!-- 		    <groupId>org.hibernate</groupId> -->
-<!-- 		    <artifactId>hibernate-entitymanager</artifactId> -->
-<!-- 		</dependency> -->
 		
 		<dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
         </dependency>
 
-	<!-- for org.hamcrest.Matcher.* in tests -->
-<!-- 	<dependency> -->
-<!-- 		<groupId>org.hamcrest</groupId> -->
-<!-- 		<artifactId>hamcrest-all</artifactId> -->
-<!-- 		<version>1.3</version> -->
-<!-- 	</dependency> -->
+		<dependency>
+			<groupId>org.hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+		</dependency>
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jooq</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.1.1</version>
+			<scope>test</scope>
+		</dependency>
+		
 	</dependencies>
 
 	<build>

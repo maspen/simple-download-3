@@ -1,35 +1,24 @@
 package com.intelligrated.download;
 
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.core.io.Resource;
-
-import com.intelligrated.download.mapper.strategy.CartonMapperStrategy;
-import com.intelligrated.download.mapper.strategy.HeaderMapperStrategy;
-import com.intelligrated.download.mapper.strategy.OrderMapperStrategy;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 @Configuration
-//@ComponentScan(basePackages = {"com.intelligrated.download"})
-@Import({HeaderMapperStrategy.class, OrderMapperStrategy.class, CartonMapperStrategy.class})
 public class Config {
 
-	@Bean(name="headerMapperResource")
-	public Resource getHeaderMapperResource() {
-		ClassPathResource classpathResource = new ClassPathResource("mapping-header.txt");
-		return classpathResource;
-	}
-	
-	@Bean(name="orderMapperResource")
-	public Resource getOrderMapperResource() {
-		ClassPathResource classpathResource = new ClassPathResource("mapping-order.txt");
-		return classpathResource;
-	}
-	
-	@Bean(name="cartonMapperResource")
-	public Resource getCartonMapperResource() {
-		ClassPathResource classpathResource = new ClassPathResource("mapping-carton.txt");
-		return classpathResource;
+	@Bean
+	public DataSource dataSource() {
+		EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
+		EmbeddedDatabase db = builder
+			.setType(EmbeddedDatabaseType.HSQL) //.H2 or .DERBY
+			.addScript("schema.sql")
+			.addScript("data.sql")
+			.build();
+		return db;
 	}
 }

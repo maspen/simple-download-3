@@ -43,26 +43,26 @@ public class SimpleDownloadApplication implements CommandLineRunner {
     public void run(String... srings) throws Exception {
     	System.out.println("*** starting:");
 
-    	for (String line : lines) {
-			System.out.println("line: " + line);
-			MapperStrategy mapperStrategy = getMapperStrategy(line);
-			
-			DataObject dataObject = mapperStrategy.map(line);
-			
-			System.out.println(dataObject.toString());
-			
-			// TODO: persist dataObject
-			System.out.println("");
-		}
+//    	for (String line : lines) {
+//			System.out.println("line: " + line);
+//			MapperStrategy mapperStrategy = getMapperStrategy(line);
+//			
+//			DataObject dataObject = mapperStrategy.map(line);
+//			
+//			System.out.println(dataObject.toString());
+//			
+//			// TODO: persist dataObject
+//			System.out.println("");
+//		}
     	
     	System.out.println("stopping ***");
     }
-    
-    private MapperStrategy getMapperStrategy(String line) {
-    	// TODO: if line == null -->NPE
-    	// TODO: if line == ""
-    	String firstChar = line.substring(0, 1);
-    	// TODO: if '1st char' not in map
-    	return mapperStrategyMap.get(firstChar);
-    }
+//    
+//    private MapperStrategy getMapperStrategy(String line) {
+//    	// TODO: if line == null -->NPE
+//    	// TODO: if line == ""
+//    	String firstChar = line.substring(0, 1);
+//    	// TODO: if '1st char' not in map
+//    	return mapperStrategyMap.get(firstChar);
+//    }
 }
